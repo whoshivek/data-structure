@@ -53,6 +53,19 @@ void increase(int n)
      return ans;
  }
 
+        void towerofhanoi(string src , string dest , string help , int n)
+        {
+           if (n ==0)
+           {
+               return ;
+           }
+           
+           towerofhanoi(src, help,dest,n-1);
+           cout<<"move   "<<n<<"  disc from  "<<src<<"  to  "<<dest<<endl;
+           towerofhanoi(help,dest,src,n-1);
+
+
+        }
  int poweri(int n , int m) ///uses two variable
  {
      if (m == 0)
@@ -82,20 +95,25 @@ void increase(int n)
 
  int fibo(int n)
  {
-     if (n==1)
+     if (n <= 2)
      {
+         if (n==0)
+         {
+             return 0;
+         }
+         
          return 1;
      }
      
 
- int fiboo = fibo(n-1);
+ int fiboo = fibo(n-1) + fibo(n-2);
 
      return fiboo;
  }
 int main()
 {
-        //   int n;
-        //   cin>>n;
+          int n;
+           cin>>n;
         //   decrease(n);
         //   cout<<endl;
         //   increase(n);
@@ -107,7 +125,7 @@ int main()
         // cout<<poweri(2, 5);
         //   cout<<endl;
          // cout<<powerii(3,3);
-         cout<<fibo(4);
-       
+       //  cout<<fibo(n);
+       towerofhanoi("A","B","C",3);
 
 }

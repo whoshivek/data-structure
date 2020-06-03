@@ -110,6 +110,65 @@ void increase(int n)
 
      return fiboo;
  }
+
+ int euler(int n , int level)
+ {
+   if(n<=1){
+         cout<<"base"<<" "<<n<<" "<<"@ "<<level<<endl;
+          return n;
+      }
+      
+     cout<<"PRE"<<" "<<n<<" "<<"@ "<<level<<endl;
+
+      int a=euler(n-1,level+1);
+       cout<<"IN"<<" "<<n<<" "<<"@ "<<level<<endl;
+      int b=euler(n-2,level+1);
+      
+       cout<<"POST"<<" "<<n<<" "<<"@ "<<level<<endl;
+
+      return a+b+3;
+}
+
+ int euler2(int n,int level){
+        if(n<=2){
+            cout<<"Base: "<<n*level<<endl;
+            return n;
+        } 
+        cout<<"Pre: "<<n*level<<endl;
+        int a=euler2(n-1,level+1);
+        
+        cout<<"In1: "<<n*level<<endl;
+        int b=euler2(n-2,level+1);
+        
+        cout<<"In2: "<<n*level<<endl;
+        int c=euler2(n-3,level-1);
+
+       cout<<"Post: "<<n*level<<endl;
+        return a+b+c+3;
+      }
+
+
+      void oddeven(int n)
+      {
+          if (n==0)
+          {
+              return ;
+          }
+          
+
+        if (n%2 == 0)
+           {
+          cout<<n;
+             }
+
+          oddeven(n-1);
+
+          if (n%2!=0)
+          {
+              cout<<n;
+          }
+          
+      }
 int main()
 {
           int n;
@@ -126,6 +185,10 @@ int main()
         //   cout<<endl;
          // cout<<powerii(3,3);
        //  cout<<fibo(n);
-       towerofhanoi("A","B","C",3);
+       //towerofhanoi("A","B","C",3);
+
+    // cout<< euler2(5 ,0);
+
+    oddeven(13);
 
 }

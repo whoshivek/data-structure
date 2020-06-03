@@ -65,15 +65,86 @@ if (data == arr[i])
 
  }
 
+int firstindexfind(vector<int> & arr , int data , int i)
+{
+
+if (i==arr.size())
+{
+    return -1;
+}
+
+if (data == arr[i])
+{
+    return i;
+}
+else
+{
+    return firstindexfind(arr , data , i+1);
+}
+
+
+
+}
+
+int lastindex(vector<int> & arr , int data , int i )
+{
+    if (i == arr.size())
+    {
+        return -1;
+    }
+    
+
+    int misa = lastindex(arr , data , i+1);
+
+   if (misa != -1)
+   {
+       return misa;
+   }
+   else
+   {
+       if (arr[i]==data)
+       {
+           return i;
+       }
+       else
+       {
+           return -1;
+       }
+       
+       
+   }
+   
+   int * res(vector<int> & arr , int data , int i , int cosf)
+   {
+
+            if (data == arr[i])
+            {
+                res(arr , data , i+1 , cosf + 1);
+
+            }
+            else
+            {
+                res(arr , data, i+1 ; cosf);
+            }
+            
+            
+   }
+    
+    
+}
+
 int main()
 {
 
 
 vector<int> arr (3,0);
-arr = {111212,8 , 7 ,100000, 9};
-displayarray(arr , 0);
-cout<<endl;
-displayreversearray(arr , 0 );
-cout<<maximuminarray(arr, 0);
-cout<<boolalpha<<find(arr , 0 , 77);
+arr = {111212,9 , 7 ,100000, 9 , 9};
+// displayarray(arr , 0);
+// cout<<endl;
+// displayreversearray(arr , 0 );
+// cout<<maximuminarray(arr, 0);
+// cout<<boolalpha<<find(arr , 0 , 77 );
+//cout<<firstindexfind(arr , 9, 0);
+cout<<lastindex(arr , 9 ,0 );
+
 }

@@ -111,33 +111,14 @@ int lastindex(vector<int> & arr , int data , int i )
            return -1;
        }
        
-       
-   }
-   
-   int * res(vector<int> & arr , int data , int i , int cosf)
-   {
-
-            if (data == arr[i])
-            {
-                res(arr , data , i+1 , cosf + 1);
-
-            }
-            else
-            {
-                res(arr , data, i+1 ; cosf);
-            }
-            
-            
-   }
-    
-    
-}
+     }
+}   
 
 int main()
 {
 
 
-vector<int> arr (3,0);
+vector<int> arr ;
 arr = {111212,9 , 7 ,100000, 9 , 9};
 // displayarray(arr , 0);
 // cout<<endl;
@@ -146,5 +127,6 @@ arr = {111212,9 , 7 ,100000, 9 , 9};
 // cout<<boolalpha<<find(arr , 0 , 77 );
 //cout<<firstindexfind(arr , 9, 0);
 cout<<lastindex(arr , 9 ,0 );
+
 
 }

@@ -113,6 +113,27 @@ int lastindex(vector<int> & arr , int data , int i )
        
      }
 }   
+  vector <int> allindex(vector<int> & arr , int d ,int i, int cosf)
+      
+{
+if(i == arr.size())
+{
+    vector <int> abc(cosf , 0);
+   // abc.push_back()
+    return abc;
+}
+vector <int> res;
+if(d == arr[i])
+{
+
+   res= allindex(arr, d, i+1, cosf+1);
+    res[cosf] = i;
+}
+else{
+   res= allindex(arr, d, i+1, cosf);
+}
+return res;
+}
 
 int main()
 {
@@ -126,7 +147,15 @@ arr = {111212,9 , 7 ,100000, 9 , 9};
 // cout<<maximuminarray(arr, 0);
 // cout<<boolalpha<<find(arr , 0 , 77 );
 //cout<<firstindexfind(arr , 9, 0);
-cout<<lastindex(arr , 9 ,0 );
+//cout<<lastindex(arr , 9 ,0 );
+vector <int> abc;
+abc = allindex(arr , 9, 0,0);
+for (int i = 0; i < abc.size(); i++)
+{
+   cout<< abc[i];
+}
+
+
 
 
 }

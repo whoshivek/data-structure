@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 void decrease(int n)
@@ -169,6 +170,11 @@ void increase(int n)
           }
           
       }
+
+    
+            
+
+      
 int main()
 {
           int n;
@@ -189,6 +195,6 @@ int main()
 
     // cout<< euler2(5 ,0);
 
-    oddeven(13);
+    //oddeven(13);
 
 }

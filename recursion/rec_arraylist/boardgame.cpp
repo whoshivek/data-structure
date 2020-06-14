@@ -90,9 +90,10 @@ if (src<=destination)
 }
 
 /////////////////////////////////////////////////////////////////////
-void boardwithladder(int src , int dest , vector <int> ladder , string path){
+void boardwithladder(int src , int dest , vector <int> ladder , string path)
+{
     static int c = 0;
-if (src==dest)
+      if (src==dest)
 {
     c++;
     cout<<c<<". -->"<<path<<endl;

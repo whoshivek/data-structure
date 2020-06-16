@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-
+///////////////////////////////////////////////////////////////////////
 void infipermu( vector<int> arr , int ssf , int tar , string path)
 { 
     int static c =0 ;
@@ -22,7 +22,7 @@ void infipermu( vector<int> arr , int ssf , int tar , string path)
      infipermu(arr ,ssf + arr[i] , tar, path + to_string(arr[i]) );
  }
 }
- 
+ ///////////////////////////////////////////////////////////////////////////////////////////
  void inficombi(vector<int> arr , int idx , int ssf , int tar , string path)
  {
      static int c=0;
@@ -50,7 +50,7 @@ for ( i = idx; i < arr.size(); i++)
 
 
  }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
  void nonrepcombi(vector<int> & arr ,int idx , int ssf , int tar , string path )
  {
 
@@ -74,7 +74,7 @@ if (ssf>tar)
 
 
  }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
  vector <string> sub(string str)
  {
 if (str.length()==0)
@@ -97,7 +97,7 @@ vector <string> myans;
 
 
  }
-
+///////////////////////////////////////////////////////////////////////////////////
  void subss(string str , string ans)
  {
 if (str.length()==0)
@@ -115,7 +115,7 @@ if (str.length()==0)
 
  }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
  void permunotrep(vector<int> arr , vector<bool> visited , int ssf , int tar , string path)
  {
 if (ssf==tar)
@@ -145,17 +145,117 @@ for (int i = 0; i < arr.size(); i++)
 
 
  }
-
- void combiinfi(vector<int> arr ,int ssf , int tar , string path)
+/////////////////////////////////////////////////////////////////////subsequenceapproach//////////////////////////////////
+ void permunotrepess(vector<int> arr ,vector<bool> visited , int idx ,int ssf , int tar , string path)
  {
 
-if (/* condition */)
+if (idx==arr.size()||tar==ssf)
 {
-    /* code */
+       if (tar==ssf)
+       {
+           cout<<"->"<<path<<endl;
+           return;
+       }
+
+       return;
+}
+
+if (ssf>tar)
+{
+    return;
 }
 
 
- }
+if (visited[idx]==false)
+{
+    visited[idx] = true;
+    permunotrepess(arr,visited, 0 , ssf + arr[idx] , tar , path + to_string(arr[idx]));
+
+visited[idx] = false;
+}
+permunotrepess(arr, visited ,idx +1 , ssf , tar , path);
+
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+void perinfiss(vector<int> arr , int idx ,int ssf , int tar , string path)
+ {
+
+if (idx==arr.size()||tar==ssf)
+{
+       if (tar==ssf)
+       {
+           cout<<"->"<<path<<endl;
+           return;
+       }
+
+       return;
+}
+
+if (ssf>tar)
+{
+    return;
+}
+
+perinfiss(arr, 0 , ssf + arr[idx] , tar , path + to_string(arr[idx]));
+perinfiss(arr ,idx +1 , ssf , tar , path);
+
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+void combinfiss(vector<int> arr , int idx ,int ssf , int tar , string path)
+ {
+
+if (idx==arr.size()||tar==ssf)
+{
+       if (tar==ssf)
+       {
+           cout<<"->"<<path<<endl;
+           return;
+       }
+
+       return;
+}
+
+if (ssf>tar)
+{
+    return;
+}
+
+combinfiss(arr, idx , ssf + arr[idx] , tar , path + to_string(arr[idx]));
+combinfiss(arr ,idx +1 , ssf , tar , path);
+
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+void combinotrepess(vector<int> arr , int idx ,int ssf , int tar , string path)
+ {
+
+if (idx==arr.size()||tar==ssf)
+{
+       if (tar==ssf)
+       {
+           cout<<"->"<<path<<endl;
+           return;
+       }
+
+       return;
+}
+
+if (ssf>tar)
+{
+    return;
+}
+
+combinotrepess(arr, idx+1 , ssf + arr[idx] , tar , path + to_string(arr[idx]));
+combinotrepess(arr ,idx +1 , ssf , tar , path);
+
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
 int main()
 {
       
@@ -172,6 +272,13 @@ int main()
 //permunotrep(arr , visit , 0 , 10 , "");
 //subss("abc" , "");
 
+permunotrepess(arr,visit ,0 , 0 , 10 , "");
+cout<<endl;
+perinfiss(arr , 0 ,0 , 10 , "");
+cout<<endl;
+combinfiss(arr , 0 ,0 , 10 , "");
+cout<<endl;
+combinotrepess(arr , 0 ,0 , 10 , "");
 
 
 
